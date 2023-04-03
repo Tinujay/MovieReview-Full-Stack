@@ -2,12 +2,15 @@ require('dotenv').config()
 const express = require('express');
 const app = express()
 
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 app.use('/movies', require('./controllers/movies'))
 
 
 
 app.get('/', (req, res) => {
-    res.send('Homepage')
+    res.render('home')          //renders the home.jsx, already knows to look for 'views' folder
 })
 
 
