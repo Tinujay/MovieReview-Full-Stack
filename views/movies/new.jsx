@@ -6,7 +6,7 @@ function newMovieForm () {
         <Def>
             <main>
                 <h1>Add your Movie!</h1>
-                <form method="POST" action="/movies">
+                <form method="POST" action="/movies">  {/* submitted to /movies */}
                     <div class="form-group">
                         <label for="title">Movie Title</label>
                         <input class="form-control" id="title" name="title" required minlength="2"></input>
@@ -30,8 +30,7 @@ function newMovieForm () {
                     </div>
                     <div class="form-group">
                         <label for="poster">Movie Poster</label>
-                        <input class="form-control" id="poster" name="poster" pattern="^https?://.*$"
-></input>
+                        <input class="form-control" id="poster" name="poster" pattern="^https?://.*$"></input>
                         <small class="form-text text-muted">Poster must be a valid URL.</small>
                     </div>
                     <button class="btn btn-primary" type="submit">Add Movie</button>

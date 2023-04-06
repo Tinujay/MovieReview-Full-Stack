@@ -1,4 +1,3 @@
-//importing react
 const React = require('react')
 
 function Def (html) {
@@ -17,4 +16,4 @@ function Def (html) {
     )
 }
 
-module.exports = Def //exporting 
+module.exports = Def 

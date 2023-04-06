@@ -1,5 +1,5 @@
-const React = require('react')
-const Def = require('../default')
+const React = require('react');
+const Def = require('../default');
 
 function Index({ movies }) {
   return (
@@ -8,7 +8,9 @@ function Index({ movies }) {
         <h1>Your Movie List</h1>
         {movies.map((movie) => (
           <div key={movie._id}>
-            <h2>{movie.title}</h2>
+            <h2>
+              <a href={`/movies/${movie._id}`}>{movie.title}</a>
+            </h2>
             <p>Genre: {movie.genre}</p>
             {movie.poster ? (
               <img src={movie.poster} alt={`${movie.title} Poster`} />
@@ -19,9 +21,7 @@ function Index({ movies }) {
         ))}
       </main>
     </Def>
-  )
+  );
 }
 
-module.exports = Index
-
-
+module.exports = Index;

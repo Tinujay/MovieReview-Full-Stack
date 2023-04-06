@@ -3,11 +3,11 @@ const db = require('../models')
 
 
 
-//GET - fetches documents from the movies collection and rendered on movies/index
+//GET - retreives all the movies collection database in MongoDB and renders on movies/index
 router.get('/', (req, res) => {
   db.Movie.find()
     .then((movies) => {
-      res.render('movies/index', { movies })
+      res.render('movies/index', { movies })    //movies array from database 
     })
     .catch(err => {
       console.log('err', err)
@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
     })
 })
 
-//POST - creates new database form into movies which then is navigated to '/movies'
+
+//POST - creates new database form into movies collection which then navigated to '/movies' (your index page)
 router.post('/', (req, res) => {
   if (req.body.poster === '') { req.body.poster = undefined } //since poster is not required 
   db.Movie.create({
@@ -35,14 +36,42 @@ router.post('/', (req, res) => {
 
 
 
-
-
-
-
+//GET - new movie (form) route
 router.get('/new', (req, res) => {
     res.render('movies/new')
   })
   
+
+
+//GET - renders a specific movie details 
+router.get('/:id', (req, res) => {
+  db.Movie.findById(req.params.id)
+    .then((movie) => {
+      res.render('movies/MovieDetails', { movie })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.render('error404')
+     })
+})
+  
+
+//POST - creates new review in the database and navigates back to the movie details page
+router.post('/:id', (req, res) => {
+  db.Review.create({
+    name: req.body.name,
+    review: req.body.review,
+    rating: req.body.rating,
+    movieId: req.params.id
+  })
+  .then(() => {
+    res.redirect(`/movies/${req.params.id}`);
+  })
+  .catch((error) => {
+    console.log(error);
+    res.render('error404');
+  });
+});
 
 
 
