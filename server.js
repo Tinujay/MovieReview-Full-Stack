@@ -5,6 +5,7 @@ const express = require('express');
 const app = express()
 
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 
 //Express settings / Middleware 
@@ -12,6 +13,7 @@ app.set('view engine', 'jsx') //sets the view engine to jsx. This means that whe
 app.engine('jsx', require('express-react-views').createEngine()) //sets up the view engine to use the express-react-views module for rendering JSX files.
 app.use(express.static('public')); //middleware function that serves static files from the public directory, such as your css
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
 
 //Controllers & Routes 

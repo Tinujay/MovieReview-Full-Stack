@@ -6,7 +6,7 @@ function EditForm(props) {
   return (
     <Def>
       <h1>Edit Movie</h1>
-      <form method="POST" action={`/movies/${props.movie._id}?_method=PUT`}>
+      <form method="POST" action={`/movies/${movie._id}?_method=PUT`}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input className="form-control" type="text" id="title" name="title" defaultValue={movie.title} required />
@@ -33,7 +33,6 @@ function EditForm(props) {
         </div>
         <button type="submit" className="btn btn-primary">Save Changes</button>
       </form>
-      <a href="/movies">Back to Movies</a>
     </Def>
   );
 }

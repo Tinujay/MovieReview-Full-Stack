@@ -33,16 +33,6 @@ function MovieReview({ movie, reviews }) {
 
         <hr />
         
-        <h2>Reviews:</h2>
-        {reviews && reviews.map((review, index) => (
-          <div key={index}>
-            <p>Name: {review.name}</p>
-            <p>Rating: {review.rating}</p>
-            <p>Review: {review.review}</p>
-            <hr />
-          </div>
-        ))}
-        
       </main>
     </Def>
   );

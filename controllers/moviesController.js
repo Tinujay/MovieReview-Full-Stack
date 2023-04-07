@@ -74,7 +74,7 @@ router.post('/:id', (req, res) => {
 });
 
 
-
+//fix
 router.get('/:id', (req, res) => {
   db.Review.find({ movieId: req.params.id })
     .then((reviews) => {
@@ -94,7 +94,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-
+//GET - edit page (form) to that particular movie 
 router.get('/:id/edit', (req, res) => {
   db.Movie.findById(req.params.id)
       .then(movie => {
@@ -104,6 +104,17 @@ router.get('/:id/edit', (req, res) => {
           res.render('error404')
       })
 })
+
+//PUT - saves changes in database and redirects to detail page
+router.put('/:id', (req, res) => {
+  const { title, genre, plot, poster } = req.body;
+  db.Movie.findByIdAndUpdate(req.params.id, { title, genre, plot, poster })
+    .then(() => res.redirect(`/movies/${req.params.id}`))
+    .catch(err => {
+      console.log(err);
+      res.render('error404');
+    });
+});
 
 
 
