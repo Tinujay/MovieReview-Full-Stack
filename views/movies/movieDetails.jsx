@@ -1,7 +1,7 @@
 const React = require('react');
 const Def = require('../default');
 
-function MovieReview({ movie }) {
+function MovieReview({ movie, reviews }) {
   return (
     <Def>
       <main>
@@ -29,6 +29,19 @@ function MovieReview({ movie }) {
             </div>
                 <button type="submit">Submit</button>
         </form>
+
+        <hr />
+        
+        <h2>Reviews:</h2>
+        {reviews && reviews.map((review, index) => (
+          <div key={index}>
+            <p>Name: {review.name}</p>
+            <p>Rating: {review.rating}</p>
+            <p>Review: {review.review}</p>
+            <hr />
+          </div>
+        ))}
+        
       </main>
     </Def>
   );

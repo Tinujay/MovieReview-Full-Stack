@@ -5,8 +5,6 @@ const reviewSchema = new mongoose.Schema({
     name: {
       type: String,
       default: 'Anonymous',
-      minlength: 2
-
     },
     review: {
       type: String,

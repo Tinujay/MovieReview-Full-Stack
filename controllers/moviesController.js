@@ -47,7 +47,7 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.Movie.findById(req.params.id)
     .then((movie) => {
-      res.render('movies/MovieDetails', { movie })
+      res.render('movies/movieDetails', { movie })
     })
     .catch((error) => {
       console.log(error)
@@ -59,7 +59,7 @@ router.get('/:id', (req, res) => {
 //POST - creates new review in the database and navigates back to the movie details page
 router.post('/:id', (req, res) => {
   db.Review.create({
-    name: req.body.name,
+    name: req.body.name ? req.body.name : 'Anonymous',
     review: req.body.review,
     rating: req.body.rating,
     movieId: req.params.id
@@ -72,6 +72,27 @@ router.post('/:id', (req, res) => {
     res.render('error404');
   });
 });
+
+
+
+router.get('/:id', (req, res) => {
+  db.Review.find({ movieId: req.params.id })
+    .then((reviews) => {
+      Movie.findById(req.params.id)
+        .then((movie) => {
+          res.render('movies/moviedetails', { movie: movie, reviews: reviews });
+        })
+        .catch((error) => {
+          console.log(error);
+          res.render('error404');
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.render('error404');
+    });
+});
+
 
 
 

@@ -5,11 +5,11 @@ const Def = require('./default')
 function Home () {
     return (
         <Def>
-            <main>
-            <h1 className="hero-title">Welcome to Movie Reviews!</h1>
-            <p className="hero-subtitle">Get the latest news and reviews on the best movies out there.</p>
+            <main style={{backgroundImage: "url(/images/movietheater.jpg)", height: "100vh", width: "100vw", backgroundSize: "cover", backgroundPosition: "center"}}>
+                <h1 className="hero-title">Cinema Central</h1>
+                <p className="hero-subtitle">Discover the latest movie reviews from our critics!</p>
                 <div className="hero-action">
-                    <a href="/movies" className="btn btn-primary">Sign up</a>
+                    <a href="/movies" className="btn btn-primary movie button">Explore</a>
                 </div>
             </main>
         </Def>
@@ -17,5 +17,4 @@ function Home () {
 }
 
 module.exports = Home
-
 
