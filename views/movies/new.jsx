@@ -31,7 +31,7 @@ function newMovieForm () {
                     <div class="form-group">
                         <label for="poster">Movie Poster</label>
                         <input class="form-control" id="poster" name="poster" pattern="^https?://.*$"></input>
-                        <small class="form-text text-muted">Poster must be a valid URL.</small>
+                        <p>Make sure that it is a valid URL*</p>
                     </div>
                     <button class="btn btn-primary" type="submit">Add Movie</button>
                 </form>

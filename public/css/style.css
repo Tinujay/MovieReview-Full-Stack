@@ -129,10 +129,11 @@ nav a:hover {
 }
 
 .movie-container h2 {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
   background-color: #fcd94be3;
   font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .movie-container h2 a {
@@ -142,7 +143,6 @@ nav a:hover {
 
 .movie-container h2 a:hover {
   color: rgb(136, 2, 2);
-  font-size: 1.5rem;
 }
 
 .movie-container p {
@@ -208,7 +208,17 @@ h1 {
 .movie-page-container form button:hover {
   background-color: #c73504;
 }
+ 
+p {
+  color: gray;
+}
 
 
 
+
+/* edit page*/
+.edit-form {
+    width: 50%;
+    margin: 0 auto;
+}
 

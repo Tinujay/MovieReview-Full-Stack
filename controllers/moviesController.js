@@ -117,5 +117,18 @@ router.put('/:id', (req, res) => {
 });
 
 
+//DELETE - a movie 
+router.delete('/:id', (req, res) => {
+  db.Movie.findByIdAndDelete(req.params.id)
+      .then(() => {
+          res.redirect('/movies')
+      })
+      .catch(err => {
+          console.log('err', err)
+          res.render('error404')
+      })
+})
+
+
 
 module.exports = router
