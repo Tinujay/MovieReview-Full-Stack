@@ -19,6 +19,7 @@ const movieSchema = new mongoose.Schema({
       },
       poster: {
         type: String,
+        default: 'images/defaultpict.jpg',
         validate: {
           validator: function(v) {
             return /^https?:\/\/.+$/i.test(v);

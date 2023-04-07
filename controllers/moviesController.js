@@ -95,5 +95,16 @@ router.get('/:id', (req, res) => {
 
 
 
+router.get('/:id/edit', (req, res) => {
+  db.Movie.findById(req.params.id)
+      .then(movie => {
+          res.render('movies/edit', { movie })
+      })
+      .catch(err => {
+          res.render('error404')
+      })
+})
+
+
 
 module.exports = router

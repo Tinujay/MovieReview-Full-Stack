@@ -10,6 +10,7 @@ function MovieReview({ movie, reviews }) {
           <img src={movie.poster} alt={`${movie.title} Poster`} />
           <p>Genre: {movie.genre}</p>
           <p>Plot: {movie.plot}</p>
+          <a href={`/movies/${movie.id}/edit`} class="btn btn-primary">Edit Movie</a>
         </div>
         <hr />
 

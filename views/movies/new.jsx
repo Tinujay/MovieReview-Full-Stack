@@ -4,7 +4,7 @@ const Def = require('../default')
 function newMovieForm () {
     return (
         <Def>
-            <main>
+            <main className="movie-page-container" style={{backgroundImage: "url(/images/theaterseats.jpg)", height: "100vh", width: "100vw", backgroundSize: "cover", backgroundPosition: "center"}}>
                 <h1>Add your Movie!</h1>
                 <form method="POST" action="/movies">  {/* submitted to /movies */}
                     <div class="form-group">

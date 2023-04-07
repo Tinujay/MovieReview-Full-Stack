@@ -6,7 +6,6 @@ function Index({ movies }) {
     <Def>
       <main className="movie-page-container" style={{backgroundImage: "url(/images/popcorn.jpg)", minheight: "100vh", width: "100vw", backgroundSize: "100% 100%", backgroundPosition: "center"}}>
         <h1 className="movie-list-title">Critic's Picks</h1>
-    <hr />
         <div className="movie-row">
             {movies.map((movie) => (
                 <div key={movie._id} className="movie-container">
