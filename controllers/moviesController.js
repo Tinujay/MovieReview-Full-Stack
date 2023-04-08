@@ -43,9 +43,10 @@ router.get('/new', (req, res) => {
   
 
 
-//GET - renders a specific movie details 
+// GET - renders a specific movie details 
 router.get('/:id', (req, res) => {
   db.Movie.findById(req.params.id)
+    .populate('reviews')
     .then((movie) => {
       res.render('movies/movieDetails', { movie })
     })
@@ -58,14 +59,22 @@ router.get('/:id', (req, res) => {
 
 //POST - creates new review in the database and navigates back to the movie details page
 router.post('/:id', (req, res) => {
-  db.Review.create({
-    name: req.body.name ? req.body.name : 'Anonymous',
-    review: req.body.review,
-    rating: req.body.rating,
-    movieId: req.params.id
-  })
-  .then(() => {
-    res.redirect(`/movies/${req.params.id}`);
+  console.log(req.body)
+  db.Movie.findById(req.params.id).then(movie=>{
+    db.Review.create(req.body)
+    .then(review => {
+      movie.reviews.push(review.id)
+      movie.save().then(() => {
+        res.redirect(`/movies/${req.params.id}`);
+      })
+    })
+    // db.Review.create({
+    //   name: req.body.name ? req.body.name : 'Anonymous',
+    //   review: req.body.review,
+    //   rating: req.body.rating,
+    //   movieId: req.params.id
+    // })
+    console.log("line69", movie)
   })
   .catch((error) => {
     console.log(error);
@@ -74,24 +83,22 @@ router.post('/:id', (req, res) => {
 });
 
 
-//fix
-router.get('/:id', (req, res) => {
-  db.Review.find({ movieId: req.params.id })
-    .then((reviews) => {
-      Movie.findById(req.params.id)
-        .then((movie) => {
-          res.render('movies/moviedetails', { movie: movie, reviews: reviews });
-        })
-        .catch((error) => {
-          console.log(error);
-          res.render('error404');
-        });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.render('error404');
-    });
-});
+//**GET - retrieve the review data on the client page (fix)
+// router.get('/:id', (req, res) => {
+//   db.Movie.findById(req.params.id)
+//     .populate('reviews')
+//     .exec((err, movie) => {
+//       if (err || !movie) {
+//         console.log(err);
+//         res.render('error404');
+//       } else {
+//         console.log(movie.reviews)
+//         res.render('movies/movieDetails', { movie });
+//       }
+//     });
+// });
+
+
 
 
 //GET - edit page (form) to that particular movie 

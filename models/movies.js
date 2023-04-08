@@ -20,7 +20,10 @@ const movieSchema = new mongoose.Schema({
       poster: {
         type: String,
         default: 'images/defaultpict.jpg',
-        }
+        },
+      reviews: [{type: mongoose.Schema.Types.ObjectId, 
+        ref:"Review"}]
+      
 })
 
 
