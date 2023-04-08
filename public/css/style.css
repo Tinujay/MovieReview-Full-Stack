@@ -171,7 +171,7 @@ nav a:hover {
 
 
 
-/* add new moviepage*/
+/* add new movie page - form*/
 h1 {
   text-align: center;
   color: #fff;
@@ -224,9 +224,77 @@ p {
 
 
 
-/* edit page*/
+/* edit - make changes page*/
 .edit-form {
     width: 50%;
     margin: 0 auto;
 }
+
+
+/*movie details page*/
+.movie-details{
+background-color: #222432;
+}
+
+.movie-details h1 {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.movie-details img {
+  width: 40%;
+  height: auto;
+  border: 3.5px solid black;
+}
+
+.movie-details .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-details p {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.movie-details div {
+  text-align: center;
+}
+
+.form {
+background-color: rgb(69, 69, 69);
+}
+
+.movie-details h2 {
+  color:rgb(12, 11, 11);
+  text-align: center;
+  font-weight: bolder;
+  padding-top: 3%;
+}
+
+.review-form label {
+  font-weight: bold;
+  color: rgb(246, 238, 238);
+}
+
+.review-form {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.form-group col-md-3 
+.form-group col-md-1 {
+  text-align: center;
+}
+
+
+
+
+
+
+
 

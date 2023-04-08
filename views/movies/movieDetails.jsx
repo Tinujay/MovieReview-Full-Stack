@@ -4,10 +4,12 @@ const Def = require('../default');
 function MovieReview({ movie, reviews }) {
   return (
     <Def>
-      <main>
+      <main className="movie-details">
         <h1>{movie.title}</h1>
         <div>
+        <div className="image-container">
           <img src={movie.poster} alt={`${movie.title} Poster`} />
+        </div>
           <p>Genre: {movie.genre}</p>
           <p>Plot: {movie.plot}</p>
 
@@ -21,22 +23,28 @@ function MovieReview({ movie, reviews }) {
         </div>
         <hr />
 
-        <h2>Lights, Camera, Opinions: Share Your Thoughts on This Movie</h2>
-        <form method="POST" action={`/movies/${movie.id}`}>
-            <div className="form-group col-sm-4">
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" />
+        <div className="form">
+          <h2>Lights, Camera, Opinions: Share Your Thoughts on This Movie!</h2>
+          <form method="POST" action={`/movies/${movie.id}`} class="review-form">
+            <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required/>
             </div>
-            <div className="form-group col-sm-2">
-                <label htmlFor="rating">Rating:</label>
-                <input type="number" id="rating" name="rating" min="0" max="5" required />
+            <div class="form-group col-md-1">
+              <label for="rating">Rating:</label>
+                <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" required/>
             </div>
-            <div className="form-group col-sm-6">
-                <label htmlFor="review">Review:</label>
-                <textarea id="review" name="review" rows="5" cols="50" required></textarea>
             </div>
-                <button type="submit">Submit</button>
-        </form>
+            <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="review">Review:</label>
+                <textarea class="form-control" id="review" name="review" rows="5" cols="50" required></textarea>
+            </div>
+            </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>    
 
         <hr />
         
