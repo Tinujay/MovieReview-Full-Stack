@@ -21,19 +21,28 @@ function MovieReview({ movie }) {
                   </button>
           </form>
         </div>
-        
+
         <hr />
 
-        <h2>Reviews</h2>
-        <ul>
-          {movie.reviews.map((review)  => (
-            <li key={review.id}>
-              <p>{review.name}</p>
-              <p>{review.review}</p>
-              <p>{review.rating}</p>
-            </li>
-          ))}
-        </ul>
+      <div className="review-section">
+        <h2>Reviews:</h2>
+          <ul className="reviews-list">
+            {movie.reviews.map((review) => (
+              <li key={review.id} className="review-box">
+                <div className="review-name">{review.name}</div>
+                <div className="review-text"><b><q>{review.review}</q></b></div>
+                <div className="review-rating">
+                  <span>Rating:</span>
+                    <div className="rating-stars">
+                      {Array.from(Array(5)).map((_, index) => (
+                        <span key={index} className={index < review.rating ? 'active' : ''}>★</span>
+                      ))}
+                    </div>
+                    </div>
+              </li>
+            ))}
+          </ul>
+      </div>
 
         <hr />
 
@@ -47,7 +56,7 @@ function MovieReview({ movie }) {
             </div>
             <div class="form-group col-md-1">
               <label for="rating">Rating:</label>
-                <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" required/>
+                <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" required/>
             </div>
             </div>
             <div class="form-row">
