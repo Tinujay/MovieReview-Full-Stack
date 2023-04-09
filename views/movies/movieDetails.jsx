@@ -2,7 +2,6 @@ const React = require('react');
 const Def = require('../default');
 
 function MovieReview({ movie }) {
-  console.log(movie)
   return (
     <Def>
       <main className="movie-details">
@@ -22,6 +21,7 @@ function MovieReview({ movie }) {
                   </button>
           </form>
         </div>
+        
         <hr />
 
         <h2>Reviews</h2>
@@ -34,7 +34,6 @@ function MovieReview({ movie }) {
             </li>
           ))}
         </ul>
-
 
         <hr />
 

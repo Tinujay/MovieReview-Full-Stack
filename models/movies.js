@@ -21,9 +21,7 @@ const movieSchema = new mongoose.Schema({
         type: String,
         default: 'images/defaultpict.jpg',
         },
-      reviews: [{type: mongoose.Schema.Types.ObjectId, 
-        ref:"Review"}]
-      
+      reviews: [{type: mongoose.Schema.Types.ObjectId, ref:'Review'}]
 })
 
 

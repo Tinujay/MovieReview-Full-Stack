@@ -43,7 +43,7 @@ router.get('/new', (req, res) => {
   
 
 
-// GET - renders a specific movie details 
+// GET - renders a specific movie details and populates the movie's reviews  
 router.get('/:id', (req, res) => {
   db.Movie.findById(req.params.id)
     .populate('reviews')
@@ -68,36 +68,12 @@ router.post('/:id', (req, res) => {
         res.redirect(`/movies/${req.params.id}`);
       })
     })
-    // db.Review.create({
-    //   name: req.body.name ? req.body.name : 'Anonymous',
-    //   review: req.body.review,
-    //   rating: req.body.rating,
-    //   movieId: req.params.id
-    // })
-    console.log("line69", movie)
   })
   .catch((error) => {
     console.log(error);
     res.render('error404');
   });
 });
-
-
-//**GET - retrieve the review data on the client page (fix)
-// router.get('/:id', (req, res) => {
-//   db.Movie.findById(req.params.id)
-//     .populate('reviews')
-//     .exec((err, movie) => {
-//       if (err || !movie) {
-//         console.log(err);
-//         res.render('error404');
-//       } else {
-//         console.log(movie.reviews)
-//         res.render('movies/movieDetails', { movie });
-//       }
-//     });
-// });
-
 
 
 
