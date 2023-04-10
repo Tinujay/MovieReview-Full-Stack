@@ -2,25 +2,35 @@ const React = require('react');
 const Def = require('../default');
 
 function MovieReview({ movie }) {
+  
   return (
     <Def>
-      <main className="movie-details">
-        <h1>{movie.title}</h1>
-        <div>
-        <div className="image-container">
-          <img src={movie.poster} alt={`${movie.title} Poster`} />
-        </div>
-          <p>Genre: {movie.genre}</p>
-          <p>Plot: {movie.plot}</p>
+      <main className="movie-details-page">
 
-          <a href={`/movies/${movie.id}/edit`} class="btn btn-primary">Edit Movie</a>
-
-          <form method="POST" action={`/movies/${movie.id}?_method=DELETE`}>
+        <div className ="movie-info" style={{backgroundImage: "url(/images/navyblue.jpg)", height: "100vh", width: "100vw", backgroundSize: "cover", backgroundPosition: "center"}}>
+          <h1>{movie.title}</h1>
+            <div className="movie-details-container">
+              <div className="image-container">
+                <img src={movie.poster} alt={`${movie.title} Poster`} />
+              </div>
+              <div className="movie-details-info">     
+                <div className="rating-stars">
+                  {Array.from(Array(5)).map((_, index) => (
+                    <span key={index} className={index < Math.round(movie.reviews.reduce((acc, review) => acc + review.rating, 0) / movie.reviews.length) ? 'active' : ''}>★</span>
+                  ))}
+                </div>
+                <p>Genre: {movie.genre}</p>
+                <p>Plot: {movie.plot}</p>
+                <a href={`/movies/${movie.id}/edit`} class="btn btn-primary">Edit Movie</a>
+                <form method="POST" action={`/movies/${movie.id}?_method=DELETE`}>
                   <button type="submit" className="btn btn-danger">
                     Delete
                   </button>
-          </form>
+                </form>
+              </div>
+            </div>
         </div>
+  
 
         <hr />
 
