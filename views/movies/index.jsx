@@ -2,7 +2,7 @@ const React = require('react');
 const Def = require('../default');
 
 function Index({ movies }) {
-  const sortedMovies = movies.sort((a, b) => a.title.localeCompare(b.title));
+  movies.sort((a, b) => a.title.localeCompare(b.title)); //sorting it in alphabetical order 
 
   return (
     <Def>
@@ -15,15 +15,15 @@ function Index({ movies }) {
                     <a className="movie-title" href={`/movies/${movie._id}`}>{movie.title}</a>
                 </h2>
                 {movie.poster ? (
-                <img src={movie.poster} alt={`${movie.title} Poster`} />
+                  <img src={movie.poster} alt={`${movie.title} Poster`} />
                 ) : (
-                <p>No poster available</p>
+                  <img src="defaultpict.jpg" alt="Default Poster" />
                 )}
                 <p>Genre: {movie.genre}</p>
                 </div>
              ))}
         </div>
-    </main>
+      </main>
     </Def>
   );
 }
