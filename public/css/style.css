@@ -28,9 +28,7 @@ body{
     text-align: center;
   }
   
-main{
-  margin-bottom: 60px;
-}
+
 
   footer {
     width: 100%;
@@ -94,7 +92,9 @@ nav a:hover {
   color: #DC3545;
 }
 
-
+main {
+  padding-bottom: 2.7rem;
+}
 
 
 /* index page */
@@ -102,10 +102,11 @@ nav a:hover {
 .movie-list-title {
   color: rgb(255, 255, 255);
   text-align: center;
-  font-size: 4rem;
-  font-family:'Oswald', sans-serif;
+  font-size: 5rem;
   text-shadow: 4px 4px 3px #040404;
   padding-top: 3rem;
+  font-family: 'Bebas Neue', cursive;
+  
 }
 
 .movie-row {
@@ -173,7 +174,7 @@ nav a:hover {
 /* add new movie page - form*/
 h1 {
   text-align: center;
-  color: #fff;
+  color: rgb(251, 246, 246);
 }
 
 .movie-page-container form {
@@ -187,6 +188,7 @@ h1 {
 
 .movie-page-container form label {
   font-weight: bold;
+  color: black;
 }
 
 .movie-page-container form input,
@@ -216,9 +218,15 @@ h1 {
   background-color: #c73504;
 }
  
-p {
-  color: rgb(249, 248, 248);
+
+.form-group p {
+  color: rgb(99, 94, 94);
 }
+
+
+
+
+
 
 
 
