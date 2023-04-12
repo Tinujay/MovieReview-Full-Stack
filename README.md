@@ -26,7 +26,15 @@ Technologies Used:
 
 Image Credits:
     The images used in this project are sourced from Unsplash, a website offering free high-resolution photos. 
-    
+
+Unfinished Functionality:
+    - implement a login/sign in page
+    - add a search bar
+    - display flash messages for user feedback 
+    - display confirmation to the user when you want to delete 
+    - edit review comments
+    - insert movie api
+
 How to Use the Application:
     - Clone the repository
     - Install dependencies using npm install
