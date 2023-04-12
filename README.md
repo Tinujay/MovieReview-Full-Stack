@@ -2,7 +2,8 @@
 
 Movie Review App - Cinema Central:
 
-This is a web application that allows users to browse, add and review movies.
+This is a web application that allows users to browse, add and review movies. The inspiration for this project was to create a platform for movie lover users to share their thoughts and opinions on different movies.
+
 The application is built using Node.js and Express.js on the backend, and uses MongoDB as the database. Users can add a movie of their choice, view movie details including reviews, and leave their own reviews. The front-end of the application is using express-react-views, which allows you to render React components on the server-side and send them as HTML to the client. The application also includes a RESTful API for retrieving and manipulating movie and review data.
 
 Features:
@@ -25,6 +26,13 @@ Technologies Used:
 
 Image Credits:
     The images used in this project are sourced from Unsplash, a website offering free high-resolution photos. 
+    
+How to Use the Application:
+    - Clone the repository
+    - Install dependencies using npm install
+    - Start the server using npm start
+    - Open your browser and go to http://localhost:3000/
+    - Once the application is running, you can browse / add movies, read movie details and it's reviews, and write your own reviews.
 
 Contributing:
 Pull requests are welcome. 
