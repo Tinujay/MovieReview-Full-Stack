@@ -13,7 +13,7 @@ function MovieReview({ movie }) {
               <div className="image-container">
                 <img src={movie.poster} alt={`${movie.title} Poster`} />
               </div>
-              <div className="movie-details-info">     
+              <div className="movie-details-info" style={{backgroundImage: "url(/images/navyblue.jpg)", height: "60vh", width: "100vw", backgroundSize: "cover", backgroundPosition: "center"}}>     
                 <div className="rating-stars">
                   {Array.from(Array(5)).map((_, index) => (
                     <span key={index} className={index < Math.round(movie.reviews.reduce((acc, review) => acc + review.rating, 0) / movie.reviews.length) ? 'active' : ''}>★</span>
@@ -31,24 +31,27 @@ function MovieReview({ movie }) {
             </div>
         </div>
   
-
         <hr />
 
-      <div className="review-section">
-        <h2>Reviews:</h2>
-          <ul className="reviews-list">
-            {movie.reviews.map((review) => (
-              <li key={review.id} className="review-box">
-                <div className="review-name">{review.name}</div>
-                <div className="review-text"><b><q>{review.review}</q></b></div>
-                <div className="review-rating">
-                  <span>Rating:</span>
+        <div className="review-section">
+          <h2>Reviews:</h2>
+            <ul className="reviews-list">
+              {movie.reviews.map((review) => (
+                <li key={review.id} className="review-box">
+                  <div className="review-name">{review.name}</div>
+                  <div className="review-text"><b><q>{review.review}</q></b></div>
+                  <div className="review-rating">
+                    <span>Rating:</span>
                     <div className="rating-stars">
                       {Array.from(Array(5)).map((_, index) => (
                         <span key={index} className={index < review.rating ? 'active' : ''}>★</span>
                       ))}
                     </div>
-                    </div>
+                    <form method="POST" action={`/movies/${movie.id}/reviews/${review.id}?_method=DELETE`}>
+                      <button type="submit" className="btn btn-danger">Delete Review</button>
+                    </form>
+
+                  </div>
               </li>
             ))}
           </ul>
@@ -62,7 +65,7 @@ function MovieReview({ movie }) {
             <div class="form-row">
             <div class="form-group col-md-3">
               <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required/>
+                <input type="text" class="form-control" id="name" name="name"/>
             </div>
             <div class="form-group col-md-1">
               <label for="rating">Rating:</label>

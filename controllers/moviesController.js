@@ -60,6 +60,9 @@ router.get('/:id', (req, res) => {
 //POST - creates new review in the database and navigates back to the movie details page
 router.post('/:id', (req, res) => {
   console.log(req.body)
+  if (!req.body.name) {
+    req.body.name = 'Anonymous';
+  }
   db.Movie.findById(req.params.id).then(movie=>{
     db.Review.create(req.body)
     .then(review => {
@@ -111,6 +114,20 @@ router.delete('/:id', (req, res) => {
           res.render('error404')
       })
 })
+
+//DELETE - deletes individual reviews
+router.delete('/:id/reviews/:reviewId', (req, res) => {
+        db.Review.findByIdAndDelete(req.params.reviewId)
+          .then(() => {
+            res.redirect(`/movies/${req.params.id}`)
+          })
+          .catch(error => {
+            console.log(error);
+            res.render('error404')
+          });
+      })
+    
+ 
 
 
 
