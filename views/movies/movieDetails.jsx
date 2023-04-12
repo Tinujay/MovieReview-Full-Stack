@@ -50,7 +50,6 @@ function MovieReview({ movie }) {
                     <form method="POST" action={`/movies/${movie.id}/reviews/${review.id}?_method=DELETE`}>
                       <button type="submit" className="btn btn-danger">Delete Review</button>
                     </form>
-
                   </div>
               </li>
             ))}
