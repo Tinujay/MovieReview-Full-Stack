@@ -42,7 +42,6 @@ router.get('/new', (req, res) => {
   })
   
 
-
 // GET - renders a specific movie details and populates the movie's reviews  
 router.get('/:id', (req, res) => {
   db.Movie.findById(req.params.id)
@@ -79,7 +78,6 @@ router.post('/:id', (req, res) => {
 });
 
 
-
 //GET - edit page (form) to that particular movie 
 router.get('/:id/edit', (req, res) => {
   db.Movie.findById(req.params.id)
@@ -90,6 +88,7 @@ router.get('/:id/edit', (req, res) => {
           res.render('error404')
       })
 })
+
 
 //PUT - saves changes in database and redirects to detail page
 router.put('/:id', (req, res) => {
@@ -117,18 +116,16 @@ router.delete('/:id', (req, res) => {
 
 //DELETE - deletes individual reviews
 router.delete('/:id/reviews/:reviewId', (req, res) => {
-        db.Review.findByIdAndDelete(req.params.reviewId)
-          .then(() => {
-            res.redirect(`/movies/${req.params.id}`)
-          })
-          .catch(error => {
-            console.log(error);
-            res.render('error404')
-          });
-      })
+  db.Review.findByIdAndDelete(req.params.reviewId)
+    .then(() => {
+      res.redirect(`/movies/${req.params.id}`)
+    })
+    .catch(error => {
+      console.log(error);
+      res.render('error404')
+    });
+})
     
  
-
-
 
 module.exports = router
